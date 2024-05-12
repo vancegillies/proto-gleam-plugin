@@ -1,0 +1,25 @@
+# A TOML plugin for proto:
+# https://moonrepo.dev/docs/proto/plugins#toml-plugin
+
+name = "gleam"
+type = "cli"
+
+[platform.linux]
+download-file = "gleam-v{version}-{arch}-unknown-linux-musl.tar.gz"
+checksum-file = "gleam-v{version}-{arch}-unknown-linux-musl.tar.gz.sha256"
+
+[platform.macos]
+download-file = "gleam-v{version}-{arch}-apple-darwin.tar.gz"
+checksum-file = "gleam-v{version}-{arch}-apple-darwin.tar.gz.sha256"
+
+[platform.windows]
+download-file = "gleam-v{version}-{arch}-pc-windows-msvc.zip"
+checksum-file = "gleam-v{version}-{arch}-pc-windows-msvc.zip.sha256"
+
+[install]
+checksum-url = "https://github.com/gleam-lang/gleam/releases/download/v{version}/{checksum_file}"
+download-url = "https://github.com/gleam-lang/gleam/releases/download/v{version}/{download_file}"
+unpack = true
+
+[resolve]
+git-url = "https://github.com/gleam-lang/gleam"
